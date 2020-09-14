@@ -21,8 +21,8 @@ module.exports = {
                 exclude: /node_modules/,
             },
             {
-                test: /.(png|jpe?g|gif|svg)$/,
-                use: 'file-loader',
+                test: /.(png|jpe?g|gif|svg|jpg)$/,
+                loader: 'file-loader?name=assets/covers/[name].[ext]',
             },
             {
                 test: /\.mp3$/,

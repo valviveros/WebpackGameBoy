@@ -2,62 +2,69 @@ export class AudioPlayer {
     domElement: HTMLElement;
     src: string;
     audio: HTMLAudioElement;
-    play: HTMLElement;
-    cover: HTMLElement;
+    playButton: HTMLElement;
+    muteButton: HTMLElement;
+    nextButton: HTMLElement;
+    previousButton: HTMLElement;
+    cover: HTMLImageElement;
+    progress: HTMLElement;
+    songTitle: HTMLElement;
+    songArtist: HTMLElement;
+    currentTime: HTMLElement;
+    durationTime: HTMLElement;
+    songIndex: number;
+    songs: string[];
+    covers: string[];
+    titles: string[];
+    artists: string[];
+    timeCount: number;
+    barProgress: number;
     constructor(domElement: HTMLElement) {
         this.domElement = domElement;
-        console.log(this.domElement);
         this.src = `${this.domElement.dataset.src}`;
-        console.log(this.src);
         this.audio = new Audio(this.src);
-        console.log(this.audio);
-        // console.log(this.audio);
         // this.controls = {
         //     domElement: this.domElement.querySelector(".controls") 
         // };
-        this.play = this.domElement.querySelector(".controls .playBtn");
+        this.playButton = this.domElement.querySelector(".controls .playBtn");
+        this.muteButton = this.domElement.querySelector(".controls .muteBtn");
+        this.nextButton = this.domElement.querySelector(".controls .nextBtn");
+        this.previousButton = this.domElement.querySelector(".controls .previousBtn");
         this.cover = this.domElement.querySelector("#coverSong");
-        // this.progress = this.domElement.querySelector(".cover .progress");
-        // this.songTitle = this.domElement.querySelector(".cover .songTitle");
-        // this.songArtist = this.domElement.querySelector(".cover .songArtist");
-        // this.currentTime = this.domElement.querySelector(".cover .currentTime");
-        // this.durationTime = this.domElement.querySelector(".cover .durationTime");
-        // this.songIndex = 0;
-        // this.songs = ['./assets/audio/how-you-like-that.mp3', './assets/audio/everything-i-wanted.mp3', './assets/audio/ice-cream.mp3'];
-        // this.covers = ['./assets/covers/how_you_like_that.jpg', './assets/covers/everything_i_wanted.jpg', './assets/covers/ice_cream.png'];
-        // this.titles = ['How You Like That', 'everything i wanted', 'Ice Cream'];
-        // this.artists = ['BLACKPINK', 'Billie Eilish', 'BLACKPINK, Selena Gomez'];
-        // this.timeCount = 0;
-        // this.barProgress = 0;
+        this.progress = this.domElement.querySelector(".cover .progress");
+        this.songTitle = this.domElement.querySelector(".cover .songTitle");
+        this.songArtist = this.domElement.querySelector(".cover .songArtist");
+        this.currentTime = this.domElement.querySelector(".cover .currentTime");
+        this.durationTime = this.domElement.querySelector(".cover .durationTime");
+        this.songIndex = 0;
+        this.songs = ['./assets/audio/how-you-like-that.mp3', './assets/audio/everything-i-wanted.mp3', './assets/audio/ice-cream.mp3'];
+        this.covers = ['./assets/covers/how_you_like_that.jpg', './assets/covers/everything_i_wanted.jpg', './assets/covers/ice_cream.jpg'];
+        this.titles = ['How You Like That', 'everything i wanted', 'Ice Cream'];
+        this.artists = ['BLACKPINK', 'Billie Eilish', 'BLACKPINK, Selena Gomez'];
+        this.timeCount = 0;
+        this.barProgress = 0;
         this.initControls();
         // this.initRun();
         // // this.initProgressActions();
 
-        // this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
+        this.audio.ontimeupdate = () => { this.updateUI()/*, this.initBarValues()*/; }
     }
 
     initControls() {
-        if (this.play) {
-            this.initPlay(this.play);
+        if (this.playButton) {
+            this.initPlay(this.playButton);
         }
-    //     this.controls.play = this.controls.domElement.querySelector(".playBtn");
-    //     const muteButton = this.controls.domElement.querySelector(".muteBtn");
-    //     const nextButton = this.controls.domElement.querySelector(".nextBtn");
-    //     const previousButton = this.controls.domElement.querySelector(".previousBtn");
+        if (this.muteButton) {
+            this.initMute(this.muteButton);
+        }
+        if (this.nextButton) {
+            this.initNext(this.nextButton);
+        }
+        if (this.previousButton) {
+            this.initPrevious(this.previousButton);
+        }
     //     const fastForwardButton = this.controls.domElement.querySelector(".fastForwardBtn");
     //     const delayButton = this.controls.domElement.querySelector(".delayBtn");
-    //     if (this.controls.play) {
-    //         this.initPlay(this.controls.play);
-    //     }
-    //     if (muteButton) {
-    //         this.initMute(muteButton);
-    //     }
-    //     if (nextButton) {
-    //         this.initNext(nextButton);
-    //     }
-    //     if (previousButton) {
-    //         this.initPrevious(previousButton);
-    //     }
     //     if (fastForwardButton) {
     //         this.initFastForward(fastForwardButton);
     //     }
@@ -90,70 +97,68 @@ export class AudioPlayer {
     //     }
     // }
 
-    // initPrevious(domElement) {
-    //     domElement.onclick = () => {
-    //         console.log("previous");
-    //         if (!this.audio.paused) {
-    //             this.pause();
-    //             this.songIndex -= 1;
-    //             if (this.songIndex < 0) {
-    //                 this.songIndex = this.songs.length - 1;
-    //             }
-    //             this.songTitle.innerHTML = this.titles[this.songIndex];
-    //             this.songArtist.innerHTML = this.artists[this.songIndex];
-    //             this.src = this.songs[this.songIndex];
-    //             this.cover.src = this.covers[this.songIndex];
-    //             this.audio = new Audio(this.src);
-    //             this.play();
-    //             this.timeCount = 0;
-    //             this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
-    //         } else {
-    //             console.log("Do nothing");
-    //         }
-    //     }
-    // }
+    initPrevious(domElement: HTMLElement) {
+        domElement.onclick = () => {
+            console.log("previous");
+            if (!this.audio.paused) {
+                this.pause();
+                this.songIndex -= 1;
+                if (this.songIndex < 0) {
+                    this.songIndex = this.songs.length - 1;
+                }
+                this.songTitle.innerHTML = this.titles[this.songIndex];
+                this.songArtist.innerHTML = this.artists[this.songIndex];
+                this.src = this.songs[this.songIndex];
+                this.cover.src = this.covers[this.songIndex];
+                this.audio = new Audio(this.src);
+                this.play();
+                this.timeCount = 0;
+                this.audio.ontimeupdate = () => { this.updateUI()/*, this.initBarValues()*/; }
+            } else {
+                console.log("Do nothing");
+            }
+        }
+    }
 
-    // initNext(domElement) {
-    //     domElement.onclick = () => {
-    //         console.log("next");
-    //         if (!this.audio.paused) {
-    //             this.pause();
-    //             this.songIndex += 1;
-    //             if (this.songIndex > this.songs.length - 1) {
-    //                 this.songIndex = 0;
-    //             }
-    //             this.songTitle.innerHTML = this.titles[this.songIndex];
-    //             this.songArtist.innerHTML = this.artists[this.songIndex];
-    //             this.src = this.songs[this.songIndex];
-    //             this.cover.src = this.covers[this.songIndex];
-    //             this.audio = new Audio(this.src);
-    //             this.play();
-    //             this.timeCount = 0;
-    //             this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
-    //         } else {
-    //             console.log("Do nothing");
-    //         }
-    //     }
-    // }
+    initNext(domElement: HTMLElement) {
+        domElement.onclick = () => {
+            console.log("next");
+            if (!this.audio.paused) {
+                this.pause();
+                this.songIndex += 1;
+                if (this.songIndex > this.songs.length - 1) {
+                    this.songIndex = 0;
+                }
+                this.songTitle.innerHTML = this.titles[this.songIndex];
+                this.songArtist.innerHTML = this.artists[this.songIndex];
+                this.src = this.songs[this.songIndex];
+                this.cover.src = this.covers[this.songIndex];
+                this.audio = new Audio(this.src);
+                this.play();
+                this.timeCount = 0;
+                this.audio.ontimeupdate = () => { this.updateUI()/*, this.initBarValues()*/; }
+            } else {
+                console.log("Do nothing");
+            }
+        }
+    }
 
-    // initMute(domElement) {
-    //     domElement.onclick = () => {
-    //         if (!this.audio.muted) {
-    //             this.audio.muted = true;
-    //         } else {
-    //             this.audio.muted = false;
-    //         }
-    //     }
-    // }
+    initMute(domElement: HTMLElement) {
+        domElement.onclick = () => {
+            if (!this.audio.muted) {
+                this.audio.muted = true;
+            } else {
+                this.audio.muted = false;
+            }
+        }
+    }
 
     initPlay(domElement: HTMLElement) {
         domElement.onclick = () => {
             if (!this.audio.paused) {
                 this.pause();
-                console.log("pausa");
             } else {
-                this.playSong();
-                console.log("play");
+                this.play();
             }
         }
     }
@@ -179,7 +184,7 @@ export class AudioPlayer {
     //     });
     // }
 
-    // formatTime(seconds) {
+    // formatTime(seconds: number) {
     //     let min = Math.floor((seconds / 60));
     //     let sec = Math.floor(seconds - (min * 60));
     //     if (sec < 10) {
@@ -196,15 +201,15 @@ export class AudioPlayer {
     //     this.audio.currentTime = this.audio.duration * progress;
     // }
 
-    // updateUI() {
-    //     console.log("Updating UI");
-    //     const total = this.audio.duration;
-    //     const current = this.audio.currentTime;
-    //     this.barProgress = (current / total) * 100;
-    //     this.progress.style.width = `${this.barProgress}%`;
-    // }
+    updateUI() {
+        console.log("Updating UI");
+        const total = this.audio.duration;
+        const current = this.audio.currentTime;
+        this.barProgress = (current / total) * 100;
+        this.progress.style.width = `${this.barProgress}%`;
+    }
 
-    playSong() {
+    play() {
         this.audio.play().then().catch(err => console.log(`Error al reproducir el archivo: ${err}`));
     }
 
