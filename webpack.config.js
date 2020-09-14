@@ -25,6 +25,13 @@ module.exports = {
                 use: 'file-loader',
             },
             {
+                test: /\.mp3$/,
+                loader: 'file-loader',
+                query: {
+                    name: 'assets/audio/[name].[ext]'
+                }
+            },
+            {
                 test: /\.s[ac]ss$/i,
                 use: [
                     // Creates `style` nodes from JS strings

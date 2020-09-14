@@ -6,8 +6,12 @@ export class AudioPlayer {
     cover: HTMLElement;
     constructor(domElement: HTMLElement) {
         this.domElement = domElement;
-        this.src = this.domElement.dataset.src;
+        console.log(this.domElement);
+        this.src = `${this.domElement.dataset.src}`;
+        console.log(this.src);
         this.audio = new Audio(this.src);
+        console.log(this.audio);
+        // console.log(this.audio);
         // this.controls = {
         //     domElement: this.domElement.querySelector(".controls") 
         // };

@@ -2,8 +2,8 @@
 import * as _ from 'lodash';
 
 // import html from '../views/test.html';
-const gameBoy = require('./views/gameBoy.html');
-import './views/css/style.scss';
+const gameBoy = require('../gameBoy.html');
+import '../css/style.scss';
 function component() {
     const element = document.createElement('div');
     
