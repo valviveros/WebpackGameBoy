@@ -1,0 +1,748 @@
+@font-face {
+  font-family: gillSans;
+  src: url(../assets/fonts/gill-sans-bold-italic.ttf);
+}
+@font-face {
+  font-family: rickVeitch;
+  src: url(../assets/fonts/CCRickVeitch-W90-Bold.ttf);
+}
+@font-face {
+  font-family: pressStart2P;
+  src: url(../assets/fonts/PressStart2P-vaV7.ttf);
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #019389;
+}
+
+#app {
+  display: flex;
+  flex-flow: column wrap;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+}
+#app .template {
+  position: absolute;
+  z-index: 0;
+}
+#app .container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 552px 26px 12px 14px 4px 20px 28px 19px 30px 19px 20px 39px 22px 39px 10px 25px;
+  grid-template-rows: 70px 36px 26px 33px 13px 120px 20px 87px 27px 27px 17px 10px 47px 10px 30px 55px;
+  z-index: 1;
+}
+#app .container .one {
+  width: 325px;
+  height: 530px;
+  background-color: #d9ad00;
+  border-radius: 26px;
+  grid-column: 2/15;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .container .two {
+  width: 325px;
+  height: 100px;
+  background-color: #d9ad00;
+  border-radius: 200px/55px;
+  grid-column: 2/15;
+  grid-row: 14;
+  opacity: 1;
+}
+#app .container .three {
+  width: 223px;
+  height: 220px;
+  background-color: #e2bc38;
+  grid-column: 5/15;
+  grid-row: 8;
+  opacity: 1;
+  z-index: 2;
+}
+#app .container .four {
+  width: 223px;
+  height: 88px;
+  background-color: #e2bc38;
+  border-radius: 200px/55px;
+  grid-column: 5/15;
+  grid-row: 13;
+  opacity: 1;
+  z-index: 2;
+}
+#app .container .five {
+  width: 277px;
+  height: 232px;
+  background-color: #403f44;
+  border-radius: 10px;
+  grid-column: 3/15;
+  grid-row: 3;
+  opacity: 1;
+  z-index: 2;
+}
+#app .container .six {
+  width: 277px;
+  height: 65px;
+  background-color: #403f44;
+  border-radius: 200px/55px;
+  grid-column: 3/15;
+  grid-row: 7;
+  opacity: 1;
+  z-index: 2;
+}
+#app .container .screen {
+  width: 177px;
+  height: 166px;
+  background-color: #bdbdbd;
+  grid-column: 7/15;
+  grid-row: 4;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .eight {
+  width: 26px;
+  height: 30px;
+  background-color: #403f44;
+  border-radius: 2px;
+  grid-column: 5/15;
+  grid-row: 9;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .nine {
+  width: 30px;
+  height: 26px;
+  background-color: #403f44;
+  border-radius: 2px;
+  grid-column: 3/15;
+  grid-row: 10;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .ten {
+  width: 28px;
+  height: 26px;
+  background-color: #403f44;
+  border-radius: 2px;
+  grid-column: 7/15;
+  grid-row: 10;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .eleven {
+  width: 26px;
+  height: 26px;
+  background-color: #403f44;
+  border-radius: 2px;
+  grid-column: 5/15;
+  grid-row: 11;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .twelve {
+  width: 26px;
+  height: 30px;
+  background-color: #403f44;
+  border-radius: 2px;
+  grid-column: 5/15;
+  grid-row: 10;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .thirteen {
+  width: 38px;
+  height: 38px;
+  align-self: end;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 12/15;
+  grid-row: 11;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .fourteen {
+  width: 38px;
+  height: 38px;
+  align-self: end;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 14/15;
+  grid-row: 10;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .fifteen {
+  width: 30px;
+  height: 10px;
+  align-self: end;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 9/15;
+  grid-row: 14;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .sixteen {
+  width: 30px;
+  height: 10px;
+  align-self: end;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 11/15;
+  grid-row: 14;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container .seventeen {
+  width: 13px;
+  height: 13px;
+  background-color: #b70b41;
+  border-radius: 50%;
+  box-shadow: 1px 0px 3px 3px #b70b41;
+  grid-column: 4/15;
+  grid-row: 5;
+  opacity: 1;
+  z-index: 3;
+}
+#app .container2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 609px 15px 155px 6px 5px 7px 6px 5px 7px 6px 5px 8px 6px 4px 6px;
+  grid-template-rows: 164px 10px 358px 2px 2px 4px 2px 2px 3px 3px 3px 3px 4px 3px 3px 3px 3px 3px 3px 3px 3px 2px 3px 2px 3px 3px 3px;
+  z-index: 3;
+}
+#app .container2 .eighteen {
+  font-weight: bold;
+  transform: scaleX(0.5);
+  transform-origin: 0 0;
+  color: white;
+  grid-column: 2;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .container2 .nineteen {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 4;
+  grid-row: 10;
+  opacity: 1;
+}
+#app .container2 .twenty {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 6;
+  grid-row: 6;
+  opacity: 1;
+}
+#app .container2 .twentyone {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 7;
+  grid-row: 9;
+  opacity: 1;
+}
+#app .container2 .twentytwo {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 9;
+  grid-row: 5;
+  opacity: 1;
+}
+#app .container2 .twentythree {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 10;
+  grid-row: 8;
+  opacity: 1;
+}
+#app .container2 .twentyfour {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 12;
+  grid-row: 4;
+  opacity: 1;
+}
+#app .container2 .twentyfive {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 13;
+  grid-row: 7;
+  opacity: 1;
+}
+#app .container2 .twentysix {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 15;
+  grid-row: 10;
+  opacity: 1;
+}
+#app .container2 .twentyseven {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 12;
+  grid-row: 11;
+  opacity: 1;
+}
+#app .container2 .twentyeight {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 9;
+  grid-row: 12;
+  opacity: 1;
+}
+#app .container2 .twentynine {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 6;
+  grid-row: 13;
+  opacity: 1;
+}
+#app .container2 .thirty {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 13;
+  grid-row: 13;
+  opacity: 1;
+}
+#app .container2 .thirtyone {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 10;
+  grid-row: 14;
+  opacity: 1;
+}
+#app .container2 .thirtytwo {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 7;
+  grid-row: 15;
+  opacity: 1;
+}
+#app .container2 .thirtythree {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 15;
+  grid-row: 15;
+  opacity: 1;
+}
+#app .container2 .thirtyfour {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 4;
+  grid-row: 16;
+  opacity: 1;
+}
+#app .container2 .thirtyfive {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 9;
+  grid-row: 17;
+  opacity: 1;
+}
+#app .container2 .thirtysix {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 12;
+  grid-row: 16;
+  opacity: 1;
+}
+#app .container2 .thirtyseven {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 6;
+  grid-row: 18;
+  opacity: 1;
+}
+#app .container2 .thirtyeight {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 13;
+  grid-row: 19;
+  opacity: 1;
+}
+#app .container2 .thirtynine {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 10;
+  grid-row: 20;
+  opacity: 1;
+}
+#app .container2 .fourty {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 7;
+  grid-row: 21;
+  opacity: 1;
+}
+#app .container2 .fourtyone {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 4;
+  grid-row: 22;
+  opacity: 1;
+}
+#app .container2 .fourtytwo {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 15;
+  grid-row: 21;
+  opacity: 1;
+}
+#app .container2 .fourtythree {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 12;
+  grid-row: 23;
+  opacity: 1;
+}
+#app .container2 .fourtyfour {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 9;
+  grid-row: 24;
+  opacity: 1;
+}
+#app .container2 .fourtyfive {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 6;
+  grid-row: 25;
+  opacity: 1;
+}
+#app .container2 .fourtysix {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 13;
+  grid-row: 26;
+  opacity: 1;
+}
+#app .container2 .fourtyseven {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 10;
+  grid-row: 27;
+  opacity: 1;
+}
+#app .container2 .fourtyeight {
+  width: 6px;
+  height: 6px;
+  background-color: #403f44;
+  border-radius: 50%;
+  grid-column: 7;
+  grid-row: 28;
+  opacity: 1;
+}
+#app .logoContainer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 626px 15px 15px 20px 15px 15px 13px 15px 15px 15px 10px 13px;
+  grid-template-rows: 314px 27px;
+  z-index: 4;
+}
+#app .logoContainer .l1 {
+  font-family: gillSans;
+  font-size: 25px;
+  color: white;
+  grid-column: 2/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l2 {
+  font-family: gillSans;
+  font-size: 25px;
+  color: white;
+  grid-column: 3/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l3 {
+  transform: scaleX(0.9);
+  transform-origin: 0 0;
+  font-family: gillSans;
+  font-size: 25px;
+  color: white;
+  grid-column: 4/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l4 {
+  font-family: gillSans;
+  font-size: 25px;
+  color: white;
+  grid-column: 5/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l5 {
+  font-family: gillSans;
+  font-size: 25px;
+  color: white;
+  grid-column: 6/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l6 {
+  transform: scaleX(0.8);
+  transform-origin: 0 0;
+  font-family: gillSans;
+  font-size: 25px;
+  color: white;
+  grid-column: 7/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l7 {
+  font-family: gillSans;
+  font-size: 25px;
+  color: white;
+  grid-column: 8/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l8 {
+  font-family: rickVeitch;
+  font-size: 24px;
+  color: #b90a40;
+  grid-column: 9/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l9 {
+  align-self: end;
+  font-family: rickVeitch;
+  font-size: 20px;
+  color: #4e4ca7;
+  grid-column: 10/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l10 {
+  font-family: rickVeitch;
+  font-size: 24px;
+  color: #6eb023;
+  grid-column: 11/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l11 {
+  align-self: end;
+  font-family: rickVeitch;
+  font-size: 20px;
+  color: #dbac05;
+  grid-column: 12/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .logoContainer .l12 {
+  font-family: rickVeitch;
+  font-size: 24px;
+  color: #01938a;
+  grid-column: 13/13;
+  grid-row: 2;
+  opacity: 1;
+}
+#app .audioPlayerContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 552px 26px 12px 14px 4px 20px 28px 19px 30px 19px 20px 39px 22px 39px 10px 25px;
+  grid-template-rows: 70px 36px 26px 33px 13px 120px 20px 87px 27px 27px 17px 10px 47px 10px 30px 55px;
+  z-index: 5;
+}
+#app .audioPlayerContainer .player {
+  width: 177px;
+  height: 166px;
+  position: relative;
+  background-color: #bdbdbd;
+  grid-column: 7;
+  grid-row: 4;
+}
+#app .audioPlayerContainer .player .cover {
+  width: 100%;
+  height: 100%;
+}
+#app .audioPlayerContainer .player .cover .bgBar {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  bottom: 0;
+  background: black;
+}
+#app .audioPlayerContainer .player .cover .songTitle {
+  position: absolute;
+  left: 2px;
+  bottom: 22px;
+  font-family: pressStart2P;
+  color: white;
+  font-size: 7px;
+}
+#app .audioPlayerContainer .player .cover .songArtist {
+  position: absolute;
+  left: 2px;
+  bottom: 14px;
+  font-family: pressStart2P;
+  color: white;
+  font-size: 6px;
+  opacity: 0.7;
+}
+#app .audioPlayerContainer .player .cover .currentTime {
+  position: absolute;
+  left: 2px;
+  bottom: 5px;
+  font-family: pressStart2P;
+  color: white;
+  font-size: 5.5px;
+  opacity: 0.7;
+}
+#app .audioPlayerContainer .player .cover .durationTime {
+  position: absolute;
+  right: 2px;
+  bottom: 5px;
+  font-family: pressStart2P;
+  color: white;
+  font-size: 5.5px;
+  opacity: 0.7;
+}
+#app .audioPlayerContainer .player .cover .progress {
+  position: absolute;
+  width: 0%;
+  height: 2%;
+  bottom: 0;
+  background-color: deeppink;
+  opacity: 1;
+}
+#app .audioPlayerContainer .player .cover img {
+  width: 100%;
+  height: 100%;
+}
+#app .audioPlayerContainer .player .controls {
+  position: absolute;
+}
+#app .audioPlayerContainer .player .controls div.btn {
+  cursor: pointer;
+}
+#app .audioPlayerContainer .player .controls .fastForwardBtn {
+  position: absolute;
+  width: 26px;
+  height: 30px;
+  margin-top: 107px;
+  margin-left: -24px;
+  background-color: #403f44;
+  border-radius: 2px;
+}
+#app .audioPlayerContainer .player .controls .delayBtn {
+  position: absolute;
+  width: 26px;
+  height: 26px;
+  margin-top: 161px;
+  margin-left: -24px;
+  background-color: #403f44;
+  border-radius: 2px;
+}
+#app .audioPlayerContainer .player .controls .previousBtn {
+  position: absolute;
+  margin-top: 134px;
+  margin-left: -50px;
+  width: 30px;
+  height: 26px;
+  background-color: #403f44;
+  border-radius: 2px;
+}
+#app .audioPlayerContainer .player .controls .nextBtn {
+  position: absolute;
+  margin-top: 134px;
+  width: 28px;
+  height: 26px;
+  background-color: #403f44;
+  border-radius: 2px;
+}
+#app .audioPlayerContainer .player .controls .muteBtn {
+  position: absolute;
+  margin-left: 177px;
+  margin-top: 123px;
+  width: 38px;
+  height: 38px;
+  align-self: end;
+  background-color: #403f44;
+  border-radius: 50%;
+}
+#app .audioPlayerContainer .player .controls .playBtn {
+  width: 38px;
+  height: 38px;
+  margin-left: 116px;
+  margin-top: 140px;
+  align-self: end;
+  background-color: #403f44;
+  border-radius: 50%;
+}
+
+/*# sourceMappingURL=style.css.map */
