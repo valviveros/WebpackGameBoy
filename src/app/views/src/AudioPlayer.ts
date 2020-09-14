@@ -6,6 +6,8 @@ export class AudioPlayer {
     muteButton: HTMLElement;
     nextButton: HTMLElement;
     previousButton: HTMLElement;
+    fastForwardButton: HTMLElement;
+    delayButton: HTMLElement;
     cover: HTMLImageElement;
     progress: HTMLElement;
     songTitle: HTMLElement;
@@ -23,13 +25,12 @@ export class AudioPlayer {
         this.domElement = domElement;
         this.src = `${this.domElement.dataset.src}`;
         this.audio = new Audio(this.src);
-        // this.controls = {
-        //     domElement: this.domElement.querySelector(".controls") 
-        // };
         this.playButton = this.domElement.querySelector(".controls .playBtn");
         this.muteButton = this.domElement.querySelector(".controls .muteBtn");
         this.nextButton = this.domElement.querySelector(".controls .nextBtn");
         this.previousButton = this.domElement.querySelector(".controls .previousBtn");
+        this.fastForwardButton = this.domElement.querySelector(".controls .fastForwardBtn");
+        this.delayButton = this.domElement.querySelector(".controls .delayBtn");
         this.cover = this.domElement.querySelector("#coverSong");
         this.progress = this.domElement.querySelector(".cover .progress");
         this.songTitle = this.domElement.querySelector(".cover .songTitle");
@@ -44,10 +45,10 @@ export class AudioPlayer {
         this.timeCount = 0;
         this.barProgress = 0;
         this.initControls();
-        // this.initRun();
-        // // this.initProgressActions();
+        this.initRun();
+        // this.initProgressActions();
 
-        this.audio.ontimeupdate = () => { this.updateUI()/*, this.initBarValues()*/; }
+        this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
     }
 
     initControls() {
@@ -63,39 +64,37 @@ export class AudioPlayer {
         if (this.previousButton) {
             this.initPrevious(this.previousButton);
         }
-    //     const fastForwardButton = this.controls.domElement.querySelector(".fastForwardBtn");
-    //     const delayButton = this.controls.domElement.querySelector(".delayBtn");
-    //     if (fastForwardButton) {
-    //         this.initFastForward(fastForwardButton);
-    //     }
-    //     if (delayButton) {
-    //         this.initDelay(delayButton);
-    //     }
+        if (this.fastForwardButton) {
+            this.initFastForward(this.fastForwardButton);
+        }
+        if (this.delayButton) {
+            this.initDelay(this.delayButton);
+        }
     }
 
-    // initFastForward(domElement) {
-    //     domElement.onclick = () => {
-    //         console.log("fastForward");
-    //         this.timeCount = this.barProgress;
-    //         this.timeCount += 3;
-    //         const x = this.timeCount;
-    //         const totalX = 177;
-    //         const progress = (x / totalX) * 2;
-    //         this.setCurrentTime(progress);
-    //     }
-    // }
+    initFastForward(domElement: HTMLElement) {
+        domElement.onclick = () => {
+            console.log("fastForward");
+            this.timeCount = this.barProgress;
+            this.timeCount += 3;
+            const x = this.timeCount;
+            const totalX = 177;
+            const progress = (x / totalX) * 2;
+            this.setCurrentTime(progress);
+        }
+    }
 
-    // initDelay(domElement) {
-    //     domElement.onclick = () => {
-    //         console.log("delay");
-    //         this.timeCount = this.barProgress;
-    //         this.timeCount -= 3;
-    //         const x = this.timeCount;
-    //         const totalX = 177;
-    //         const progress = (x / totalX) * 1.5;
-    //         this.setCurrentTime(progress);
-    //     }
-    // }
+    initDelay(domElement: HTMLElement) {
+        domElement.onclick = () => {
+            console.log("delay");
+            this.timeCount = this.barProgress;
+            this.timeCount -= 3;
+            const x = this.timeCount;
+            const totalX = 177;
+            const progress = (x / totalX) * 1.5;
+            this.setCurrentTime(progress);
+        }
+    }
 
     initPrevious(domElement: HTMLElement) {
         domElement.onclick = () => {
@@ -113,7 +112,7 @@ export class AudioPlayer {
                 this.audio = new Audio(this.src);
                 this.play();
                 this.timeCount = 0;
-                this.audio.ontimeupdate = () => { this.updateUI()/*, this.initBarValues()*/; }
+                this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
             } else {
                 console.log("Do nothing");
             }
@@ -136,7 +135,7 @@ export class AudioPlayer {
                 this.audio = new Audio(this.src);
                 this.play();
                 this.timeCount = 0;
-                this.audio.ontimeupdate = () => { this.updateUI()/*, this.initBarValues()*/; }
+                this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
             } else {
                 console.log("Do nothing");
             }
@@ -163,43 +162,46 @@ export class AudioPlayer {
         }
     }
 
-    // // initProgressActions() {
-    // //     const cover = this.domElement.querySelector(".cover");
-    // //     cover.onclick = (e) => {
-    // //         const x = e.offsetX;
-    // //         const totalX = cover.clientWidth;
-    // //         const progress = x / totalX;
-    // //         this.setCurrentTime(progress);
-    // //     };
-    // // }
-
-    // initBarValues() {
-    //     this.currentTime.innerHTML = (this.formatTime(Math.floor(this.audio.currentTime)));
-    //     this.audio.addEventListener('durationchange', (event) => {
-    //         if (this.durationTime.innerHTML === "NaN:NaN") {
-    //             this.durationTime.innerHTML = "0:00";
-    //         } else {
-    //             this.durationTime.innerHTML = (this.formatTime(Math.floor(this.audio.duration)));
-    //         }
-    //     });
+    // initProgressActions() {
+    //     const cover = this.domElement.querySelector(".cover");
+    //     cover.onclick = (e) => {
+    //         const x = e.offsetX;
+    //         const totalX = cover.clientWidth;
+    //         const progress = x / totalX;
+    //         this.setCurrentTime(progress);
+    //     };
     // }
 
-    // formatTime(seconds: number) {
-    //     let min = Math.floor((seconds / 60));
-    //     let sec = Math.floor(seconds - (min * 60));
-    //     if (sec < 10) {
-    //         sec = `0${sec}`;
-    //     }
-    //     return `${min}:${sec}`;
-    // }
+    initBarValues() {
+        this.currentTime.innerHTML = (this.formatTime(Math.floor(this.audio.currentTime)));
+        this.audio.addEventListener('durationchange', (event) => {
+            if (this.durationTime.innerHTML === "NaN:NaN") {
+                this.durationTime.innerHTML = "0:00";
+            } else {
+                this.durationTime.innerHTML = (this.formatTime(Math.floor(this.audio.duration)));
+            }
+        });
+    }
 
-    // initRun() {
-    //     setInterval(this.formatTime, 500);
-    // }
+    formatTime(seconds: number) {
+        let min = Math.floor((seconds / 60));
+        let sec = Math.floor(seconds - (min * 60));
+        let valSec = '';
+        if (sec < 10) {
+            valSec = `0${sec.toString()}`;
+        } else {
+            valSec = sec.toString();
+        }
+        return `${min}:${valSec}`;
+    }
 
-    // setCurrentTime(progress) {
-    //     this.audio.currentTime = this.audio.duration * progress;
-    // }
+    initRun() {
+        setInterval(this.formatTime, 500);
+    }
+
+    setCurrentTime(progress: number) {
+        this.audio.currentTime = this.audio.duration * progress;
+    }
 
     updateUI() {
         console.log("Updating UI");
