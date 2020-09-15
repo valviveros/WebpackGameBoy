@@ -48,7 +48,14 @@ export class AudioPlayer {
         this.initRun();
         // this.initProgressActions();
 
-        this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
+        this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(), this.songFinished(); }
+    }
+
+    songFinished() {
+        this.audio.addEventListener('ended', (event) => {
+            // this.nextButton.click();
+            console.log("Acabé");
+        });
     }
 
     initControls() {
@@ -74,7 +81,7 @@ export class AudioPlayer {
 
     initFastForward(domElement: HTMLElement) {
         domElement.onclick = () => {
-            console.log("fastForward");
+            // console.log("fastForward");
             this.timeCount = this.barProgress;
             this.timeCount += 3;
             const x = this.timeCount;
@@ -86,7 +93,7 @@ export class AudioPlayer {
 
     initDelay(domElement: HTMLElement) {
         domElement.onclick = () => {
-            console.log("delay");
+            // console.log("delay");
             this.timeCount = this.barProgress;
             this.timeCount -= 3;
             const x = this.timeCount;
@@ -98,7 +105,7 @@ export class AudioPlayer {
 
     initPrevious(domElement: HTMLElement) {
         domElement.onclick = () => {
-            console.log("previous");
+            // console.log("previous");
             if (!this.audio.paused) {
                 this.pause();
                 this.songIndex -= 1;
@@ -119,9 +126,9 @@ export class AudioPlayer {
         }
     }
 
-    initNext(domElement: HTMLElement) {
+    public initNext(domElement: HTMLElement) {
         domElement.onclick = () => {
-            console.log("next");
+            // console.log("next");
             if (!this.audio.paused) {
                 this.pause();
                 this.songIndex += 1;
@@ -136,9 +143,7 @@ export class AudioPlayer {
                 this.play();
                 this.timeCount = 0;
                 this.audio.ontimeupdate = () => { this.updateUI(), this.initBarValues(); }
-            } else {
-                console.log("Do nothing");
-            }
+            } 
         }
     }
 
