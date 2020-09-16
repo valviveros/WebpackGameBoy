@@ -38,10 +38,10 @@ export class AudioPlayer {
         this.currentTime = this.domElement.querySelector(".cover .currentTime");
         this.durationTime = this.domElement.querySelector(".cover .durationTime");
         this.songIndex = 0;
-        this.songs = ['./assets/audio/how-you-like-that.mp3', './assets/audio/everything-i-wanted.mp3', './assets/audio/ice-cream.mp3'];
-        this.covers = ['./assets/covers/how_you_like_that.jpg', './assets/covers/everything_i_wanted.jpg', './assets/covers/ice_cream.jpg'];
-        this.titles = ['How You Like That', 'everything i wanted', 'Ice Cream'];
-        this.artists = ['BLACKPINK', 'Billie Eilish', 'BLACKPINK, Selena Gomez'];
+        this.songs = ['./assets/audio/how-you-like-that.mp3', './assets/audio/everything-i-wanted.mp3', './assets/audio/ice-cream.mp3', './assets/audio/single.mp3', './assets/audio/let-go-for-tonight.mp3'];
+        this.covers = ['./assets/covers/how_you_like_that.jpg', './assets/covers/everything_i_wanted.jpg', './assets/covers/ice_cream.jpg', './assets/covers/single.jpg', './assets/covers/let_go_for_tonight.jpg'];
+        this.titles = ['How You Like That', 'everything i wanted', 'Ice Cream', 'Single', 'Let Go for Tonight'];
+        this.artists = ['BLACKPINK', 'Billie Eilish', 'BLACKPINK, Selena Gomez', 'The Neighbourhood', 'Foxes'];
         this.timeCount = 0;
         this.barProgress = 0;
         this.initControls();
