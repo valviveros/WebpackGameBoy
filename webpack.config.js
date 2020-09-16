@@ -65,7 +65,10 @@ module.exports = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
-    plugins: [new HtmlWebpackPlugin()],
+    plugins: [new HtmlWebpackPlugin({
+        title: 'Game Boy Color',
+        favicon: './src/app/views/assets/img/gameIcon.svg'
+    })],
     devServer: {
         contentBase: path.join(__dirname, 'src'),
         compress: true,
